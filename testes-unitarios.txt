@@ -1,0 +1,22 @@
+	# COMO CRIAR:
+
+		
+		1 - Criar um projeto para os testes:
+			
+			Imagine que você tenha um projeto chamado "App.Core", e então deverá ser criado um outro projeto chamado
+			"App.Core.Tests".
+
+			bash -> dotnet new Xunit -o App.Core.Tests
+
+		2 - Criar uma solution.
+	
+			bash -> dotnet new sln --name App.Core
+			bash -> dotnet sln add ./App.Core/App.Core.csproj 
+			bash -> dotnet sln add ./App.Core.Tests/App.Core.Tests.csproj
+
+		3 - Adicionar uma referência do projeto principal para o projeto de testes.
+			
+			bash -> dotnet add ./App.Core.Tests/App.Core.Tests/csproj reference ./App.Core/App.Core.csproj
+
+			
+			
