@@ -30,6 +30,7 @@ jobs:
     environment:
       name: dev
       url: "https://localhost:5001/development"
+    needs: build
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
