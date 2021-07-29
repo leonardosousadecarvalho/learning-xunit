@@ -26,28 +26,82 @@ namespace Calculadora.Core.Tests
             Assert.False(condicao);
         }
 
+        [Fact]
+        public void Subtrai_DoisNumeros_RetornaUmInt_Sucesso()
+        {
+            var calculadora = new CalculadoraCore();
+            var resultado = calculadora.Subtrair(10, 2);
+
+            Assert.Equal(8, resultado);
+        }
+
+        [Fact]
+        public void Subtrai_DoisNumeros_RetornaUmInt_Falha()
+        {
+            var calculadora = new CalculadoraCore();
+            var resultado = calculadora.Subtrair(10, 2);
+            var condicao = resultado != 8;
+
+            Assert.False(condicao);
+        }
+
+        [Fact]
+        public void Multiplica_DoisNumeros_RetornaUmInt_Sucesso()
+        {
+            var calculadora = new CalculadoraCore();
+            var resultado = calculadora.Multiplicar(5, 2);
+
+            Assert.Equal(10, resultado);
+        }
+        [Fact]
+        public void Multiplica_DoisNumeros_RetornaUmInt_Falha()
+        {
+            var calculadora = new CalculadoraCore();
+            var resultado = calculadora.Multiplicar(5, 2);
+            var condicao = resultado != 10;
+
+            Assert.False(condicao);
+        }
+
+        [Fact]
+        public void Divide_DoisNumeros_RetornaUmInt_Sucesso()
+        {
+            var calculadora = new CalculadoraCore();
+            var resultado = calculadora.Dividir(10, 5);
+
+            Assert.Equal(2, resultado);
+        }
+
+        [Fact]
+        public void Divide_DoisNumeros_RetornaUmInt_Falha()
+        {
+            var calculadora = new CalculadoraCore();
+            var resultado = calculadora.Dividir(10, 5);
+            var condicao = resultado != 2;
+
+            Assert.False(condicao);
+        }
+
         [Theory(DisplayName = "Testando conversor fahrenheit para celsius")]
         [InlineData(75.2, 24)]
         [InlineData(95, 35)]
         [InlineData(59, 15)]
-        public void Converte_FahrenheitParaCelsius_Sucesso(double f, double c)
+        public void Converte_FahrenheitParaCelsius_Theory(double f, double c)
         {
             var calculadora = new CalculadoraCore();
             var resultado = calculadora.FahrenheitParaCelsius(f);
                
-            // Console.WriteLine($"\nA temperatura {f}ºF foi convertida para {resultado}ºC");
             Assert.Equal(c, resultado);
         }
-        [Theory]
+        [Theory(DisplayName = "Testando conversor celsius para fahrenheit")]
         [InlineData(24, 75.2)]
         [InlineData(35, 95)]
         [InlineData(15, 59)]
-        public void Converte_CelsiusParaFahrenheit_Sucesso(double c, double f)
+        public void Converte_CelsiusParaFahrenheit_Theory(double c, double f)
         {
             var calculadora = new CalculadoraCore();
             var resultado = calculadora.CelsiusParaFahrenheit(c);
                
-            // Console.WriteLine($"\nA temperatura {c}ºC foi convertida para {resultado}ºF");
             Assert.Equal(f, resultado);
         }
     }
